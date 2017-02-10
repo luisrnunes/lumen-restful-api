@@ -20,8 +20,7 @@ class CustomerController extends Controller
     }
 
     public function get($id) {
-        $customer = Customer::with("addresses")->findOrFail((int) $id);
-        return response()->json($customer, 200);
+        return Customer::with("addresses")->findOrFail((int) $id);
     }
 
     public function create(Request $request) {
@@ -36,5 +35,12 @@ class CustomerController extends Controller
 
     public function update(Request $request, $id) {
         $customer = Customer::findOrFail((int) $id);
+        $customer->fill($request->all());
+        if (!$customer->isValid()) {
+            throw new EntityValidationException($customer);
+        }
+
+        $customer->save();
+        return response()->json(["message" => "Resource has been updated."], 200);
     }
 }

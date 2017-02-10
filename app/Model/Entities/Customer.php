@@ -13,7 +13,7 @@ class Customer extends Model implements Validatable
         "document"   => "required|digits:11",
         "birth_date" => "required|date_format:d/m/Y",
         "email"      => "required|email",
-        "phone"      => "required"
+        "phone"      => "required|digits:13"
     ];
 
     protected $fillable = [

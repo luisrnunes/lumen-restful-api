@@ -13,13 +13,15 @@ class Address extends Model implements Validatable
         "number"       => "required",
         "zip_code"     => "required|digits:8",
         "neighborhood" => "required",
-        "city"  => "required",
-        "state" => "required|max:2"
+        "city"    => "required",
+        "state"   => "required|alpha|max:2",
+        "country" => "required|alpha|max:2"
     ];
 
     protected $fillable = [
         "street", "number", "zip_code",
-        "neighborhood", "city", "state"
+        "neighborhood", "city", "state",
+        "country"
     ];
 
     public function getValidationErrors() {
