@@ -41,6 +41,6 @@ class CustomerController extends Controller
         }
 
         $customer->save();
-        return response()->json(["message" => "Resource has been updated."], 200);
+        return response(null, 204);
     }
 }
