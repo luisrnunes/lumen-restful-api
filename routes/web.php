@@ -1,4 +1,4 @@
 <?php
 
-require_once("customer_routes.php");
-require_once("address_routes.php");
+require_once("customers_routes.php");
+require_once("addresses_routes.php");
