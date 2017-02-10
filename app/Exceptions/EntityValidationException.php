@@ -7,7 +7,7 @@ use App\Model\Entities\Validatable;
 class EntityValidationException extends \Exception
 {
     protected $message = "Validation failed.";
-    private $invalidEntity;
+    protected $invalidEntity;
 
     public function __construct(Validatable $invalidEntity) {
         $this->invalidEntity = $invalidEntity;
